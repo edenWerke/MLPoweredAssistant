@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+nltk
+numpy
+torch
+beautifulsoup4
+requests 
+PyPDF2 
+pyspellchecker 
+textblob 

@@ -1,0 +1,401 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "How are you",
+                "Is anyone there?",
+                "Hello",
+                "Welcome to Zemen Bazzar!",
+                "Hey"
+            ],
+            "responses": [
+                "Hello! How can I assist you today?",
+                "Good to see you! What can I help you with?",
+                "Hi there! Welcome to Zemen Bazzar."
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Goodbye",
+                "See you later",
+                "I am leaving",
+                "Cya",
+                "Thanks for your help"
+            ],
+            "responses": [
+                "Thank you for visiting Zemen Bazzar! Come back soon!",
+                "Goodbye! Have a great day!",
+                "See you next time!"
+            ]
+        },
+        {
+            "tag": "product_name",
+            "patterns": [
+                "What is the name of your platform?",
+                "What is this called?",
+                "What's the name of the product?"
+            ],
+            "responses": [
+                "Our platform is called Zemen Bazaar eCommerce Platform."
+            ]
+        },
+        {
+            "tag": "product_overview",
+            "patterns": [
+                "Tell me about Zemen Bazaar",
+                "What does Zemen Bazaar do?",
+                "Describe your platform",
+                "What is Zemen Bazaar eCommerce Platform?"
+            ],
+            "responses": [
+                "Zemen Bazaar eCommerce Platform brings delivery agents, vendors, and customers together in a common digital marketplace to enable the fast and efficient exchange of goods and services."
+            ]
+        },
+        {
+            "tag": "platform_features",
+            "patterns": [
+                "What features does your platform have?",
+                "List the features of Zemen Bazaar",
+                "Tell me about the system's key features"
+            ],
+            "responses": [
+                "Zemen Bazaar includes features like: Intuitive Interface, User & Account Management, Product Management, Order Management, Delivery Management, Payment Management, Social Media Integration, Product Recommendations, and Interactivity tools like theme switching, wishlist, multi-language, chat, contact, and search."
+            ]
+        },
+        {
+            "tag": "benefits_vendors",
+            "patterns": [
+                "How does Zemen Bazaar help vendors?",
+                "Vendor benefits",
+                "What’s in it for vendors?"
+            ],
+            "responses": [
+                "Vendors can increase sales, gain visibility through ads, track customer preferences with analytics, and engage more buyers with repeat promotions and product recommendations."
+            ]
+        },
+        {
+            "tag": "benefits_buyers",
+            "patterns": [
+                "Why should I shop on Zemen Bazaar?",
+                "Benefits for customers",
+                "What do buyers get?"
+            ],
+            "responses": [
+                "Buyers enjoy a wide product selection, competitive pricing, 2-hour average delivery time, personalized recommendations, discounts, and insights to make informed shopping decisions."
+            ]
+        },
+        {
+            "tag": "benefits_delivery_agents",
+            "patterns": [
+                "What are the benefits for delivery agents?",
+                "Delivery agent perks",
+                "Why join as a delivery agent?"
+            ],
+            "responses": [
+                "Delivery agents can earn weekly through flexible jobs, manage routes efficiently using our mobile app, and improve delivery speeds with optimized tools."
+            ]
+        },
+        {
+            "tag": "target_vendors",
+            "patterns": [
+                "Who can sell on Zemen Bazaar?",
+                "Target vendors",
+                "Who is the vendor audience?"
+            ],
+            "responses": [
+                "Our target vendors include: local retailers, new business entrants, artisans and indigenous creators, manufacturers, and business associations like chambers of commerce."
+            ]
+        },
+        {
+            "tag": "target_buyers",
+            "patterns": [
+                "Who shops on Zemen Bazaar?",
+                "Target buyers",
+                "Who are your customers?"
+            ],
+            "responses": [
+                "We target tech-savvy young adults (18-35), urban shoppers, busy professionals, and families looking for reliable products and quick delivery."
+            ]
+        },
+        {
+            "tag": "target_delivery_agents",
+            "patterns": [
+                "Who can become a delivery agent?",
+                "Delivery agent audience",
+                "Who is eligible to deliver?"
+            ],
+            "responses": [
+                "Delivery agents include freelancers, students, part-timers, local drivers, and vehicle owners such as motorcycle, Bajaj, or car drivers who know their areas well."
+            ]
+        },
+        {
+            "tag": "browsing_shopping",
+            "patterns": [
+                "I want to browse products",
+                "Show me the categories",
+                "Where can I find items?",
+                "Explore products"
+            ],
+            "responses": [
+                "Welcome to ZemenBazaar.com! Browse a wide range of products organized in categories to help you find what you need."
+            ]
+        },
+        {
+            "tag": "user_registration",
+            "patterns": [
+                "How do I register?",
+                "Sign me up",
+                "Create an account",
+                "Register on Zemen Bazaar"
+            ],
+            "responses": [
+                "You can register using your mobile phone number. We’ll send you an OTP to verify your identity and secure your account."
+            ]
+        },
+        {
+            "tag": "selecting_products",
+            "patterns": [
+                "How do I select products?",
+                "Choose an item",
+                "Add items to cart",
+                "Pick a product"
+            ],
+            "responses": [
+                "You can select products by browsing our catalog. Each item includes images, descriptions, and prices. Just choose your item and quantity!"
+            ]
+        },
+        {
+            "tag": "placing_order",
+            "patterns": [
+                "How can I order?",
+                "Place my order",
+                "Confirm selection",
+                "Order item"
+            ],
+            "responses": [
+                "Once you select your items, proceed to checkout. You’ll confirm your order details and note the order code for reference."
+            ]
+        },
+        {
+            "tag": "payment_process",
+            "patterns": [
+                "How do I pay?",
+                "Payment options",
+                "What is the payment process?",
+                "Can I pay on delivery?"
+            ],
+            "responses": [
+                "You can choose Pre-Delivery Payment or Payment on Delivery. The vendor’s and delivery agent’s phone numbers will be provided for communication. Make sure to get the payment receipt from the respective party."
+            ]
+        },
+        {
+            "tag": "delivery_agent_registration",
+            "patterns": [
+                "I want to become a delivery agent",
+                "Register as delivery agent",
+                "Join as a delivery agent"
+            ],
+            "responses": [
+                "Choose 'Become a Delivery Agent' on our platform. Provide your contact and vehicle details, agree to the terms, and pay the registration fee to get started."
+            ]
+        },
+        {
+            "tag": "route_optimization",
+            "patterns": [
+                "How do delivery agents find the best routes?",
+                "Route help",
+                "Efficient delivery routes"
+            ],
+            "responses": [
+                "Our platform uses a route optimization feature to help delivery agents minimize time and transport costs."
+            ]
+        },
+        {
+            "tag": "order_pickup",
+            "patterns": [
+                "How do agents pick up orders?",
+                "Pickup instructions for agents"
+            ],
+            "responses": [
+                "Delivery agents are shown the vendor’s and customer’s contact info. They follow the payment type, confirm payment status, and collect items accordingly."
+            ]
+        },
+        {
+            "tag": "agent_responsibility",
+            "patterns": [
+                "Who is responsible for damage?",
+                "Agent item safety",
+                "Delivery damage"
+            ],
+            "responses": [
+                "Delivery agents are responsible for safe handling. Vendors must provide genuine products. Any damage during transport is the agent’s responsibility."
+            ]
+        },
+        {
+            "tag": "timely_delivery",
+            "patterns": [
+                "How fast is delivery?",
+                "Delivery time frame",
+                "When will I get my item?"
+            ],
+            "responses": [
+                "Items are delivered within 45 minutes to 2 hours, ensuring fast and efficient service."
+            ]
+        },
+        {
+            "tag": "handling_returns",
+            "patterns": [
+                "Return process",
+                "How do I return an item?",
+                "Return due to poor quality"
+            ],
+            "responses": [
+                "If returned for quality issues, the delivery agent returns the item to the vendor. Return shipping costs are shared between the vendor and customer."
+            ]
+        },
+        {
+            "tag": "vendor_registration",
+            "patterns": [
+                "I want to sell on Zemen Bazaar",
+                "Become a vendor",
+                "Register as seller"
+            ],
+            "responses": [
+                "To become a vendor, click 'Become a Seller' and submit documents like your trade license and VAT registration."
+            ]
+        },
+        {
+            "tag": "vendor_fees",
+            "patterns": [
+                "Do I need to pay to sell?",
+                "Vendor subscription fees",
+                "Product listing fees"
+            ],
+            "responses": [
+                "Yes, vendors must pay subscription, advertising, and product listing fees as per the agreement. You may also opt to pay commission on sales."
+            ]
+        },
+        {
+            "tag": "product_listing",
+            "patterns": [
+                "How do I list my products?",
+                "Add product to shop",
+                "Upload item for sale"
+            ],
+            "responses": [
+                "After registering and paying fees, vendors can list their products with images, descriptions, and advertisements based on their plan."
+            ]
+        },
+        {
+            "tag": "order_management",
+            "patterns": [
+                "How do vendors manage orders?",
+                "Vendor order process"
+            ],
+            "responses": [
+                "Vendors monitor, accept/reject orders, prepare the items, ensure product quality, and hand over to delivery agents."
+            ]
+        },
+        {
+            "tag": "vendor_agent_coordination",
+            "patterns": [
+                "Can I use my own delivery agent?",
+                "Vendor delivery control"
+            ],
+            "responses": [
+                "Yes, vendors can use their own agents, but they must register through Zemen Bazaar for tracking and safety purposes."
+            ]
+        },
+        {
+            "tag": "vendor_payment_confirmation",
+            "patterns": [
+                "When do vendors confirm payment?",
+                "Vendor payment steps"
+            ],
+            "responses": [
+                "For Payment on Delivery, delivery agents confirm the vendor receives payment before marking it complete. For Pre-Delivery, vendors must confirm payment within 10 minutes."
+            ]
+        },
+        {
+            "tag": "quality_assurance",
+            "patterns": [
+                "What if customer rejects the item?",
+                "Customer didn’t accept my product",
+                "Quality issue returns"
+            ],
+            "responses": [
+                "Vendors must resolve quality complaints within 3 hours if a customer refuses the product. Ensuring product quality is essential."
+            ]
+        },
+        {
+            "tag": "contact_info",
+            "patterns": [
+                "How do I contact you?",
+                "I need help",
+                "Is there customer support?",
+                "Where is your office?",
+                "Can I reach you on phone or email?"
+            ],
+            "responses": [
+                "We're here to help! You can contact us through:\n- Email: info@zemenbazaar.com\n- Phone: 0982232658\n- Live Chat: Available on our website from 9 AM to 9 PM\n- Office Address: Adi-Hawsi, ዕዳጋ\n- Social Media: @zemenbazaar"
+            ]
+        },
+        {
+            "tag": "emotional_support",
+            "patterns": [
+                "I feel sad",
+                "I'm feeling happy",
+                "I am stressed",
+                "I am lonely",
+                "I feel excited",
+                "I need someone to talk to",
+                "How do you feel?",
+                "Are you okay?",
+                "I love you",
+                "I'm upset"
+            ],
+            "responses": [
+                "I'm here for you. How can I help?",
+                "It's okay to feel that way. Want to talk more about it?",
+                "Thanks for sharing your feelings with me.",
+                "I'm glad you're opening up. Let me know if you want to chat.",
+                "Your feelings are important. I'm here to listen."
+            ]
+        },
+        {
+            "tag": "technical_support",
+            "patterns": [
+                "The website is not working",
+                "I can't log in",
+                "App is crashing"
+            ],
+            "responses": [
+                "Sorry for the inconvenience! Try clearing your browser cache or reinstalling the app. Need more help?"
+            ]
+        },
+        {
+            "tag": "feedback_complaint",
+            "patterns": [
+                "I want to give feedback",
+                "I have a complaint",
+                "Report an issue"
+            ],
+            "responses": [
+                "We appreciate your feedback. Please tell me more about your experience.",
+                "Sorry to hear that. Can you provide details so we can assist you better?"
+            ]
+        },
+        {
+            "tag": "fallback",
+            "patterns": [],
+            "responses": [
+                " Please ask something else.",
+                "Sorry, I don't have information on that topic.",
+                "Can you please rephrase or ask something else about Zemen Bazaar"
+            ]
+        }
+    ]
+}
