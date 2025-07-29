@@ -489,15 +489,23 @@ def fetch_products():
 
 def find_product_by_name(products, query):
     from difflib import get_close_matches
+    query_lower = query.lower()
+    # First, try substring match (case-insensitive)
+    for p in products:
+        name = p.get('name', '')
+        if name and name.lower() in query_lower:
+            return p
+    # Then, try fuzzy match
     names = [p.get('name', '') for p in products]
-    matches = get_close_matches(query, names, n=1, cutoff=0.7)
+    matches = get_close_matches(query, names, n=1, cutoff=0.6)
     if matches:
         for p in products:
             if p.get('name', '') == matches[0]:
                 return p
-    # Try substring match if no close match
+    # Finally, try if any word in the query matches a product name
     for p in products:
-        if query.lower() in p.get('name', '').lower():
+        name = p.get('name', '').lower()
+        if name and any(word in name for word in query_lower.split()):
             return p
     return None
 
