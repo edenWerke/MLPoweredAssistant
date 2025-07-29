@@ -501,10 +501,24 @@ def find_product_by_name(products, query):
             return p
     return None
 
+def clean_description(description):
+    # Remove lines mentioning color, size, or containing only icons
+    lines = description.split('\n')
+    cleaned = []
+    for line in lines:
+        # Remove lines with 'color', 'size', or that are mostly non-alphanumeric
+        if re.search(r'color|size', line, re.IGNORECASE):
+            continue
+        if len(re.sub(r'[\W_]', '', line)) < 3:  # skip lines with <3 alphanumeric chars
+            continue
+        cleaned.append(line)
+    return '\n'.join(cleaned).strip()
+
 def format_product_response(product):
     name = product.get('name', '')
     price = product.get('price', '')
     description = product.get('description', '')
+    description = clean_description(description)
     product_id = str(product.get('id', '')).strip()
     link = f"https://zemenbazaar.com/en/products/{product_id}" if product_id else ''
     return f"Name: {name}\nPrice: {price}\nLink: {link}\nDescription: {description}"
