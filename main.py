@@ -73,6 +73,7 @@ import pickle
 import requests
 from bs4 import BeautifulSoup
 import PyPDF2
+import openpyxl
 
 import torch
 import torch.nn as nn
@@ -341,6 +342,12 @@ class ChatbotAssistant:
         return best_tag
 
     def process_message(self, input_message, confidence_threshold=0.5):
+        # Check for product match first (live web data)
+        products = fetch_products()
+        if products:
+            product = find_product_by_name(products, input_message)
+            if product:
+                return format_product_response(product)
         # Correct spelling for the whole phrase before tokenization
         input_message = self.correct_spelling_phrase(self.normalize_text(input_message))
         words = self.tokenize_and_lemmatize(input_message)
@@ -469,6 +476,38 @@ def merge_intents(existing, new):
         else:
             tags[intent['tag']] = intent
     return list(tags.values())
+
+def fetch_products():
+    url = "http://147.93.94.157:3000/api/v1/products"
+    try:
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        return response.json()
+    except Exception as e:
+        print(f"Error fetching products: {e}")
+        return []
+
+def find_product_by_name(products, query):
+    from difflib import get_close_matches
+    names = [p.get('name', '') for p in products]
+    matches = get_close_matches(query, names, n=1, cutoff=0.7)
+    if matches:
+        for p in products:
+            if p.get('name', '') == matches[0]:
+                return p
+    # Try substring match if no close match
+    for p in products:
+        if query.lower() in p.get('name', '').lower():
+            return p
+    return None
+
+def format_product_response(product):
+    name = product.get('name', '')
+    price = product.get('price', '')
+    description = product.get('description', '')
+    product_id = str(product.get('id', '')).strip()
+    link = f"https://zemenbazaar.com/en/products/{product_id}" if product_id else ''
+    return f"Name: {name}\nPrice: {price}\nLink: {link}\nDescription: {description}"
 
 if __name__ == '__main__':
     assistant = ChatbotAssistant('intents.json', function_mappings = {'stocks': get_stocks})
