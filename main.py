@@ -342,6 +342,17 @@ class ChatbotAssistant:
         return best_tag
 
     def process_message(self, input_message, confidence_threshold=0.5):
+        # Parse for price and type filters
+        min_price, max_price = parse_price_filter(input_message)
+        product_type = parse_product_type(input_message)
+        if min_price or max_price or product_type:
+            products = fetch_products()
+            filtered = filter_products(products, product_type, min_price, max_price)
+            if filtered:
+                # Return a summary of matching products (top 3)
+                return '\n\n'.join([format_product_response(p) for p in filtered[:3]])
+            else:
+                return 'No products found matching your criteria.'
         # Check for product match first (live web data)
         products = fetch_products()
         if products:
@@ -530,6 +541,47 @@ def format_product_response(product):
     product_id = str(product.get('id', '')).strip()
     link = f"https://zemenbazaar.com/en/products/{product_id}" if product_id else ''
     return f"Name: {name}\nPrice: {price}\nLink: {link}\nDescription: {description}"
+
+def parse_price_filter(query):
+    # Returns (min_price, max_price) or (None, None)
+    query = query.lower()
+    if 'under' in query or 'less than' in query:
+        match = re.search(r'(under|less than)\s*(\d+)', query)
+        if match:
+            return (None, int(match.group(2)))
+    elif 'over' in query or 'more than' in query:
+        match = re.search(r'(over|more than)\s*(\d+)', query)
+        if match:
+            return (int(match.group(2)), None)
+    elif 'between' in query:
+        match = re.search(r'between\s*(\d+)\s*and\s*(\d+)', query)
+        if match:
+            return (int(match.group(1)), int(match.group(2)))
+    return (None, None)
+
+def parse_product_type(query, known_types=['laptop', 'phone', 'tablet', 'monitor', 'printer', 'desktop', 'pc', 'notebook']):
+    for t in known_types:
+        if t in query.lower():
+            return t
+    return None
+
+def filter_products(products, product_type=None, min_price=None, max_price=None):
+    filtered = []
+    for p in products:
+        name = p.get('name', '').lower()
+        price = p.get('price', '')
+        try:
+            price_val = int(re.sub(r'\D', '', str(price)))
+        except:
+            price_val = None
+        if product_type and product_type not in name:
+            continue
+        if min_price and (price_val is None or price_val < min_price):
+            continue
+        if max_price and (price_val is None or price_val > max_price):
+            continue
+        filtered.append(p)
+    return filtered
 
 if __name__ == '__main__':
     assistant = ChatbotAssistant('intents.json', function_mappings = {'stocks': get_stocks})
